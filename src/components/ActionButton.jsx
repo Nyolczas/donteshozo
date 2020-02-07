@@ -5,7 +5,6 @@ const ActionButton = (props) => (
     <button
       className= "big-button"
       onClick={props.handlePick}
-      disabled={!props.hasOptions}
     >
     Mit tegyek?
     </button>

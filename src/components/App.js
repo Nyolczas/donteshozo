@@ -4,6 +4,7 @@ import Header from './Header';
 import ActionButton from './ActionButton';
 import Options from './Options';
 import AddOption from './AddOption';
+import OptionModal from './OptionModal';
 
 export default class App extends React.Component {
   state = {
@@ -19,17 +20,31 @@ export default class App extends React.Component {
     }));
   };
 
-  handleDeleteOptions = (optionToRemove) => {
-
+  handleDeleteOptions = () => {
+    this.setState(() => ({ options: [] }));
   };
 
-  handleDeleteOption = () => {
-
+  handleDeleteOption = (optionToRemove) => {
+    this.setState((prevState) => ({
+      options: prevState.options.filter((option) => optionToRemove !== option)
+    }));
   };
 
   handleAddOption = (option) => {
+    if (!option) {
+      return 'Írj be egy opciót!';
+    } else if (this.state.options.indexOf(option) > -1) {
+      return 'Ezt már megadtad, adj meg valami másik lehetőséget!';
+    }
 
+    this.setState((prevState) => ({
+      options: prevState.options.concat(option)
+    }));
   };
+
+  handleClearSelectedOption = () => {
+    this.setState(() => ({ selectedOption: undefined }));
+  }
 
   render() {
     const subtitle = 'Ha nem tudsz egy kérdésben dűlőre jutni, akkor jó helyen jársz';
@@ -37,10 +52,7 @@ export default class App extends React.Component {
       <div>
         <Header subtitle={subtitle}/>
         <div className="container">
-          <ActionButton
-            hasOptions={this.state.options.length > 0}
-            handlePick={this.handlePick}
-          />
+          {this.state.options.length > 1 && <ActionButton handlePick={this.handlePick}/>}
           <div className="widget">
             <Options
               options={this.state.options}
@@ -52,6 +64,10 @@ export default class App extends React.Component {
             />
           </div>
         </div>
+        <OptionModal
+          selectedOption={this.state.selectedOption}
+          handleClearSelectedOption={this.handleClearSelectedOption}
+        />
       </div>
     );
   }
