@@ -3,13 +3,10 @@ import Option from './Option';
 
 const Options = (props) => (
   <div>
-
-   { props.options.length >= 2 &&
      <div className="widget-header">
-      <h3 className="widget-header__title">Az opcióid, amik közül választhatsz:</h3>
-    </div>}
+     <h3 className="widget-header__title">{props.title()}</h3>
+    </div>
 
-    {props.options.length < 2 && <p className="widget__message">A döntéshez adj meg legalább két választási lehetőséget!</p>}
     {
       props.options.map((option, index) => (
         <Option

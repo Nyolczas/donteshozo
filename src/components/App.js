@@ -32,7 +32,7 @@ export default class App extends React.Component {
 
   handleAddOption = (option) => {
     if (!option) {
-      return 'Írj be egy opciót!';
+      return 'Írj be egy tényleges opciót!';
     } else if (this.state.options.indexOf(option) > -1) {
       return 'Ezt már megadtad, adj meg valami másik lehetőséget!';
     }
@@ -46,6 +46,16 @@ export default class App extends React.Component {
     this.setState(() => ({ selectedOption: undefined }));
   }
 
+  headerTitleText = () => {
+    if(this.state.options.length === 0) {
+      return 'A döntéshez adj meg legalább két választási lehetőséget!';
+    } else if (this.state.options.length === 1) {
+      return 'Adj meg legalább még egy választási lehetőséget!';
+    } else {
+      return 'Az opcióid, amik közül választhatsz:';
+    }
+  }
+
   render() {
     const subtitle = 'Ha nem tudsz egy kérdésben dűlőre jutni, akkor jó helyen jársz';
     return (
@@ -55,6 +65,7 @@ export default class App extends React.Component {
           {this.state.options.length > 1 && <ActionButton handlePick={this.handlePick}/>}
           <div className="widget">
             <Options
+              title={this.headerTitleText}
               options={this.state.options}
               handleDeleteOptions={this.handleDeleteOptions}
               handleDeleteOption={this.handleDeleteOption}
