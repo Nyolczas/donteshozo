@@ -1,0 +1,24 @@
+.widget{
+  margin-bottom: 5rem;
+  box-shadow: 0px 0px 50px rgba(black, 0.5);
+}
+
+.widget-header__title {
+  font-size: 1.6rem;
+  font-weight: normal;
+}
+
+.option__text {
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+.modul {
+  background: linear-gradient(117.36deg, #A8ACB7 0%, #969FB8 26.04%, #63697A 71.35%, #8F95A1 100%);
+  border-top: 2px solid rgba(white, .5);
+  border-bottom: 2px solid $colorBlack;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+}

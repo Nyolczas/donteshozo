@@ -1,5 +1,4 @@
 import React from 'react';
-import './../App.css';
 import Header from './Header';
 import ActionButton from './ActionButton';
 import Options from './Options';
@@ -57,7 +56,7 @@ export default class App extends React.Component {
   }
 
   render() {
-    const subtitle = 'Ha nem tudsz egy kérdésben dűlőre jutni, akkor jó helyen jársz';
+    const subtitle = 'Ha egy kérdésben nem tudsz dűlőre jutni, akkor jó helyen jársz.';
     return (
       <div>
         <Header subtitle={subtitle}/>

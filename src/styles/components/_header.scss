@@ -1,0 +1,23 @@
+.header {
+  background: #181F2D;
+  padding: 3rem 2rem;
+  margin-bottom: 5rem;
+}
+
+.header__title {
+  color: $colorWhite;
+  font-weight: bold;
+  font-size: 4rem;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+}
+
+.header__subtitle {
+  font-weight: 300;
+  font-size: 2.4rem;
+  line-height: 3.2rem;
+  color: $colorHigh;
+  text-shadow: 0rem 0rem 1rem rgba($colorBlue, 0.25), 0rem 0rem .4rem $colorBlue;
+  letter-spacing: 0.05rem;
+  margin-bottom: 0;
+}

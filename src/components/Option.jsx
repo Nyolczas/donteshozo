@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Option = (props) => (
-  <div className="option">
+  <div className="option modul">
     <p className="option__text">{props.count}. {props.optionText}</p>
     <button
       className="button button--link"
